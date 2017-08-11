@@ -1,6 +1,6 @@
 {
   "name": "gulp-json-to-cbs-configuration",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Personal converter from json to cbs configuration",
   "main": "index.js",
   "scripts": {
