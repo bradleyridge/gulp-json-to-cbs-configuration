@@ -44,9 +44,15 @@ function parseContext(parent, data, isHeader){
             var childContent = getChildContent(child);
             
             if (isHeader){
-                parent.header.push(childContent);
+                var newObject = {
+                    content : childContent
+                };
+                parent.header.push(newObject);
             } else {
-                parent.footer.push(childContent);
+                var newObject = {
+                    content : childContent
+                };
+                parent.footer.push(newObject);
             }
         }
         
