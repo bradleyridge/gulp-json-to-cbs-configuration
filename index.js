@@ -6,7 +6,7 @@ module.exports = () => {
     if (file.isNull()) return cb(null, file);
     if (file.isStream()) return cb(new PluginError('[docx-html-converter]: ', 'Stream is not supported'));
       
-      var jsonData = file.contents;
+      var jsonData = JSON.parse(file.contents);
       var parsedJsonData = parseData(jsonData);
       var jsonBufferOutput = new Buffer(parsedJsonData);
       file.contents = jsonBufferOutput;
