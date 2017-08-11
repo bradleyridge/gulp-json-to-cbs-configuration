@@ -1,0 +1,19 @@
+{
+  "name": "gulp-json-to-cbs-configuration",
+  "version": "1.0.0",
+  "description": "Personal converter from json to cbs configuration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradleyridge/gulp-json-to-cbs-configuration.git"
+  },
+  "author": "bradley-ridge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradleyridge/gulp-json-to-cbs-configuration/issues"
+  },
+  "homepage": "https://github.com/bradleyridge/gulp-json-to-cbs-configuration#readme"
+}
