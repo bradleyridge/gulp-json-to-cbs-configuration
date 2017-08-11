@@ -8,7 +8,7 @@ module.exports = () => {
       
       var jsonData = JSON.parse(file.contents);
       var parsedJsonData = parseData(jsonData);
-      var jsonBufferOutput = new Buffer(parsedJsonData);
+      var jsonBufferOutput = new Buffer(JSON.stringify(parsedJsonData));
       file.contents = jsonBufferOutput;
       cb(null, file);
   });
