@@ -75,7 +75,10 @@ function parseTable(parent, table){
         if (firstRow.content.length == 1) {
             var cellInFirstRow = firstRow.content[0];
             var cellContent = getAllContent(cellInFirstRow.content);
-            parent.header.push(cellContent);
+            var newObject = {
+                    content : cellContent
+                };
+            parent.header.push(newObject);
         } else {
             
             
