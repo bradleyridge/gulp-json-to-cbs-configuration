@@ -17,6 +17,9 @@ module.exports = () => {
 
 function parseData(data){
     var newContext = {
+        title : "",
+        description : "",
+        subtitle : "",
         header : [],
         content : [],
         footer : []
@@ -38,7 +41,7 @@ function parseContext(parent, data, isHeader){
         //if it is a table
         if (child.openingTag == 'table'){
             isHeader = false;
-            parseTable(parent, child);
+            parseTable(parent, child, true);
         } else {
             
             var childContent = getChildContent(child);
@@ -65,12 +68,11 @@ function parseContext(parent, data, isHeader){
     
 }
 
-function parseTable(parent, table){
+function parseTable(parent, table, isHeader){
     
     //if there is a row left
     if (table.content.length > 0){
         var firstRow = table.content[0];
-        console.log("found a row");
         //if there is one cell in that row
         if (firstRow.content.length == 1) {
             var cellInFirstRow = firstRow.content[0];
@@ -78,10 +80,13 @@ function parseTable(parent, table){
             var newObject = {
                     content : cellContent
                 };
+          if (isHeader){
             parent.header.push(newObject);
+          } else {
+            parent.footer.push(newObject);
+          }
         } else {
-            
-            
+            isHeader = false;
             
             var headerCell = firstRow.content[0];
             var bodyCell = firstRow.content[1];
@@ -94,7 +99,7 @@ function parseTable(parent, table){
             parent.content.push(newSection);
         }
         table.content.splice(0,1);
-        parseTable(parent, table);
+        parseTable(parent, table, isHeader);
     }
     
     
